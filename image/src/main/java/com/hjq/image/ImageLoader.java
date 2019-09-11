@@ -13,21 +13,29 @@ import android.widget.ImageView;
 import java.io.File;
 
 /**
- *    author : Android 轮子哥
- *    github : https://github.com/getActivity/AndroidProject
- *    time   : 2018/12/26
- *    desc   : 图片加载器
+ * author : Android 轮子哥
+ * github : https://github.com/getActivity/AndroidProject
+ * time   : 2018/12/26
+ * desc   : 图片加载器
  */
 public final class ImageLoader {
 
-    /** 图片生产工厂 */
+    /**
+     * 图片生产工厂
+     */
     private static ImageFactory sImageFactory;
-    /** 图片加载策略 */
+    /**
+     * 图片加载策略
+     */
     private static ImageStrategy sImageStrategy;
 
-    /** 加载中占位图 */
+    /**
+     * 加载中占位图
+     */
     private static Drawable sPlaceholder;
-    /** 加载出错占位图 */
+    /**
+     * 加载出错占位图
+     */
     private static Drawable sError;
 
     public static void init(Application application) {
@@ -38,8 +46,8 @@ public final class ImageLoader {
     /**
      * 使用指定的图片加载器进行初始化
      *
-     * @param application               上下文对象
-     * @param factory                   图片加载器生成对象
+     * @param application 上下文对象
+     * @param factory     图片加载器生成对象
      */
     public static void init(@NonNull Application application, @NonNull ImageFactory factory) {
         sImageFactory = factory;
@@ -73,10 +81,11 @@ public final class ImageLoader {
     final Object context;
     int circle;
     String url;
+    Uri uri;
     @DrawableRes
     int resourceId;
     boolean isGif;
-
+    boolean isBitmap;
     Drawable placeholder = sPlaceholder;
     Drawable error = sError;
 
@@ -106,6 +115,11 @@ public final class ImageLoader {
         return this;
     }
 
+    public ImageLoader bitmap() {
+        this.isBitmap = true;
+        return this;
+    }
+
     public ImageLoader circle() {
         return circle(Integer.MAX_VALUE);
     }
@@ -115,8 +129,14 @@ public final class ImageLoader {
         return this;
     }
 
+
     public ImageLoader load(String url) {
         this.url = url;
+        return this;
+    }
+
+    public ImageLoader load(Uri uri) {
+        this.uri = uri;
         return this;
     }
 

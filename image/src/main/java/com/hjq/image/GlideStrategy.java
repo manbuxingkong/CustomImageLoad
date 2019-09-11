@@ -15,10 +15,10 @@ import com.bumptech.glide.load.resource.bitmap.RoundedCorners;
 import com.bumptech.glide.request.RequestOptions;
 
 /**
- *    author : Android 轮子哥
- *    github : https://github.com/getActivity/AndroidProject
- *    time   : 2018/12/26
- *    desc   : Glide 加载策略
+ * author : Android 轮子哥
+ * github : https://github.com/getActivity/AndroidProject
+ * time   : 2018/12/26
+ * desc   : Glide 加载策略
  */
 final class GlideStrategy implements ImageStrategy {
 
@@ -29,6 +29,8 @@ final class GlideStrategy implements ImageStrategy {
 
         if (loader.isGif) {
             manager.asGif();
+        } else if (loader.isBitmap) {
+            manager.asBitmap();
         }
 
         final RequestBuilder<Drawable> builder;
@@ -39,6 +41,7 @@ final class GlideStrategy implements ImageStrategy {
         } else {
             builder = manager.load(loader.error);
         }
+
 
         if (loader.placeholder != null) {
             final RequestOptions options = RequestOptions.errorOf(loader.error).placeholder(loader.placeholder);
@@ -54,6 +57,7 @@ final class GlideStrategy implements ImageStrategy {
 
             builder.apply(options);
         }
+
 
         if (loader.width != 0 && loader.height != 0) {
             builder.override(loader.width, loader.height);
