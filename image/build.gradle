@@ -1,0 +1,27 @@
+apply plugin: 'com.android.library'
+apply plugin: 'com.github.dcendents.android-maven'
+group = 'com.github.manbuxingkong'
+android {
+    compileSdkVersion 28
+
+    resourcePrefix "image_"
+
+    defaultConfig {
+        minSdkVersion 14
+        targetSdkVersion 28
+        // 混淆配置
+        consumerProguardFiles 'proguard-glide.pro'
+
+        versionCode 1
+        versionName "0.0.1"
+    }
+}
+
+dependencies {
+    implementation 'com.android.support:appcompat-v7:28.0.0'
+    implementation 'com.android.support:design:28.0.0'
+
+    // 图片加载框架：https://github.com/bumptech/glide
+    implementation 'com.github.bumptech.glide:glide:4.9.0'
+    annotationProcessor 'com.github.bumptech.glide:compiler:4.9.0'
+}
