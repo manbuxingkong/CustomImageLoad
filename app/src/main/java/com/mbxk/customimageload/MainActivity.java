@@ -16,7 +16,6 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         image = findViewById(R.id.image);
-
         ImageLoader.with(this)
                 .load("https://www.baidu.com/img/bd_logo.png")
                 .centerCrop()
