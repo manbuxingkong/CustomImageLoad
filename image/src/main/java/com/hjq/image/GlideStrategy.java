@@ -33,16 +33,18 @@ final class GlideStrategy implements ImageStrategy {
             manager.asBitmap();
         }
 
+
         final RequestBuilder<Drawable> builder;
         if (loader.url != null && !"".equals(loader.url)) {
             builder = manager.load(loader.url.trim());
         } else if (loader.resourceId != 0) {
             builder = manager.load(loader.resourceId);
-        } else if (loader.uri!=null){
-            builder= manager.load(loader.uri);
-        }else {
+        } else if (loader.uri != null) {
+            builder = manager.load(loader.uri);
+        } else {
             builder = manager.load(loader.error);
         }
+
 
         if (loader.placeholder != null) {
             final RequestOptions options = RequestOptions.errorOf(loader.error).placeholder(loader.placeholder);
@@ -54,6 +56,10 @@ final class GlideStrategy implements ImageStrategy {
                     // 圆角裁剪
                     options.transform(new RoundedCorners(loader.circle));
                 }
+            }
+
+            if (loader.centerCrop) {
+                options.centerCrop();
             }
 
             builder.apply(options);

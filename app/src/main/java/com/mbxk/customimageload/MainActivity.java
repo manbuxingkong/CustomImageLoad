@@ -19,6 +19,7 @@ public class MainActivity extends AppCompatActivity {
 
         ImageLoader.with(this)
                 .load("https://www.baidu.com/img/bd_logo.png")
+                .centerCrop()
                 .into(image);
     }
 }

@@ -9,7 +9,6 @@ import android.support.annotation.DrawableRes;
 import android.support.annotation.NonNull;
 import android.widget.ImageView;
 
-
 import java.io.File;
 
 /**
@@ -86,6 +85,7 @@ public final class ImageLoader {
     int resourceId;
     boolean isGif;
     boolean isBitmap;
+    boolean centerCrop;
     Drawable placeholder = sPlaceholder;
     Drawable error = sError;
 
@@ -117,6 +117,11 @@ public final class ImageLoader {
 
     public ImageLoader bitmap() {
         this.isBitmap = true;
+        return this;
+    }
+
+    public ImageLoader centerCrop() {
+        this.centerCrop = true;
         return this;
     }
 
