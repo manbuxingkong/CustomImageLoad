@@ -38,7 +38,9 @@ final class GlideStrategy implements ImageStrategy {
             builder = manager.load(loader.url.trim());
         } else if (loader.resourceId != 0) {
             builder = manager.load(loader.resourceId);
-        } else {
+        } else if (loader.uri!=null){
+            builder=manager.load(loader.uri);
+        }else {
             builder = manager.load(loader.error);
         }
 
