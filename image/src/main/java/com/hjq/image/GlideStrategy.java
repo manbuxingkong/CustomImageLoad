@@ -44,7 +44,6 @@ final class GlideStrategy implements ImageStrategy {
             builder = manager.load(loader.error);
         }
 
-
         if (loader.placeholder != null) {
             final RequestOptions options = RequestOptions.errorOf(loader.error).placeholder(loader.placeholder);
             if (loader.circle != 0) {
