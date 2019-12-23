@@ -9,6 +9,8 @@ import android.support.annotation.DrawableRes;
 import android.support.annotation.NonNull;
 import android.widget.ImageView;
 
+import com.bumptech.glide.request.target.Target;
+
 import java.io.File;
 
 /**
@@ -36,6 +38,8 @@ public final class ImageLoader {
      * 加载出错占位图
      */
     private static Drawable sError;
+
+    public static int SIZE_ORIGINAL = Target.SIZE_ORIGINAL;
 
     public static void init(Application application) {
         // 使用 Glide 进行初始化图片加载器
