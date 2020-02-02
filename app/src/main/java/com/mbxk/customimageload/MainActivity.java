@@ -2,7 +2,7 @@ package com.mbxk.customimageload;
 
 
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatActivity;
 import android.widget.ImageView;
 
 import com.hjq.image.ImageLoader;

@@ -2,7 +2,7 @@ package com.hjq.image;
 
 import android.content.Context;
 import android.graphics.drawable.Drawable;
-import android.support.v4.content.ContextCompat;
+import androidx.core.content.ContextCompat;
 
 
 import com.bumptech.glide.Glide;

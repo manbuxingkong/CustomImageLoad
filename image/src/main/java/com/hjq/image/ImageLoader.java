@@ -5,8 +5,8 @@ import android.app.Fragment;
 import android.content.Context;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
-import android.support.annotation.DrawableRes;
-import android.support.annotation.NonNull;
+import androidx.annotation.DrawableRes;
+import androidx.annotation.NonNull;
 import android.widget.ImageView;
 
 import com.bumptech.glide.request.target.Target;
@@ -110,7 +110,7 @@ public final class ImageLoader {
         return new ImageLoader(fragment);
     }
 
-    public static ImageLoader with(android.support.v4.app.Fragment fragment) {
+    public static ImageLoader with(androidx.fragment.app.Fragment fragment) {
         return new ImageLoader(fragment);
     }
 

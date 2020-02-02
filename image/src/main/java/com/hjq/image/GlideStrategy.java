@@ -5,7 +5,7 @@ import android.app.Activity;
 import android.app.Fragment;
 import android.content.Context;
 import android.graphics.drawable.Drawable;
-import android.support.v4.app.FragmentActivity;
+import androidx.fragment.app.FragmentActivity;
 
 
 import com.bumptech.glide.Glide;
@@ -89,8 +89,8 @@ final class GlideStrategy implements ImageStrategy {
             }
         } else if (object instanceof Fragment) {
             return Glide.with((Fragment) object);
-        } else if (object instanceof android.support.v4.app.Fragment) {
-            return Glide.with((android.support.v4.app.Fragment) object);
+        } else if (object instanceof androidx.fragment.app.Fragment) {
+            return Glide.with((androidx.fragment.app.Fragment) object);
         }
         // 如果不是上面这几种类型就直接抛出异常
         throw new IllegalArgumentException("This object is illegal");
